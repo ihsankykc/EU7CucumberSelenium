@@ -17,7 +17,7 @@ Feature: Account types
     When the user navigates to "Customers" "Contacts"
     Then the title contains "Contacts - Customers"
 
-#  Scenario: Driver user
+#  Scenario: Driver user 1 2
 #    Given the user logged in as "driver"
 #
 #  Scenario: Sales manager user
