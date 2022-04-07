@@ -85,11 +85,11 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Cucumber HTML Reports</projectName>
+                            <projectName>${artifactId}Cucumber HTML Reports</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
-                                <param>**/cucumber*.json</param>
+                                 <param>**/cucumber*.json</param>
                             </jsonFiles>
                         </configuration>
                     </execution>

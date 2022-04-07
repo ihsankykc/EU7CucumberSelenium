@@ -7,8 +7,10 @@ Feature: Login as different users
       And the title contains "Dashboard"
 
         #homework
-  Scenario: login as a driver
-    Given the user logged in as "usertype"
+  @wip
+  Scenario: login as a different user
+    Given the user is on the login page
+    When the user logged in as "driver"
     Then the user should be able to login
     And the title contains "Dashboard"
     #driver,storemanager,salesmanager

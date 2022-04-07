@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class ContactsStepDefs {
 
-    @Given("the user logged in as {string}")
+    @When("the user logged in as {string}")
     public void the_user_logged_in_as(String userType) {
         //go to login page
         Driver.get().get(ConfigurationReader.get("url"));
@@ -76,6 +76,7 @@ public class ContactsStepDefs {
         //we have ready method to find email webwelement in pom class before
         //we just get the email from feature file and pass to that method and will click that webelement
         ContactsPage contactsPage = new ContactsPage();
+        contactsPage.waitUntilLoaderScreenDisappear();
         contactsPage.getContactEmail(email).click();
 
     }
@@ -98,9 +99,10 @@ public class ContactsStepDefs {
         //query for retrieving firstname,lastname,email,phone
         String query ="select concat(first_name,' ',last_name) as \"full_name\",e.email,phone\n" +
                 "from orocrm_contact c join orocrm_contact_email e\n" +
-                "on c.id = e.owner_id join orocrm_contact_phone p\n" +
-                "on e.owner_id = p.owner_id\n" +
-                "where e.email='mbrackstone9@example.com'";
+                "on c.id= e.owner_id join orocrm_contact_phone p\n" +
+                "on c.id=p.owner_id\n" +
+                "where e.email=\"mbrackstone9@example.com\"";
+
         //get info and save in the map
         Map<String, Object> rowMap = DBUtils.getRowMap(query);
 
